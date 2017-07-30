@@ -11,22 +11,18 @@ import org.json.JSONObject;
 
 public class JsonParser {
 
-    public static NasaPicInfo parseNasaPicInfo(String jsonResult){
-        NasaPicInfo nasaPicInfo = null;
-        try {
-            nasaPicInfo = new NasaPicInfo();
-            JSONObject reader = new JSONObject(jsonResult);
-            nasaPicInfo.setDate(reader.optString("date"));
-            nasaPicInfo.setExplanation(reader.optString("explanation"));
-            nasaPicInfo.setHdurl(reader.optString("hdurl"));
-            nasaPicInfo.setMedia_type(reader.optString("media_type"));
-            nasaPicInfo.setService_version(reader.optString("service_version"));
-            nasaPicInfo.setTitle(reader.optString("title"));
-            nasaPicInfo.setUrl(reader.optString("url"));
+    public static NasaPicInfo parseNasaPicInfo(String jsonResult) throws JSONException {
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        NasaPicInfo nasaPicInfo = new NasaPicInfo();
+        JSONObject reader = new JSONObject(jsonResult);
+        nasaPicInfo.setDate(reader.optString("date"));
+        nasaPicInfo.setExplanation(reader.optString("explanation"));
+        nasaPicInfo.setHdurl(reader.optString("hdurl"));
+        nasaPicInfo.setMedia_type(reader.optString("media_type"));
+        nasaPicInfo.setService_version(reader.optString("service_version"));
+        nasaPicInfo.setTitle(reader.optString("title"));
+        nasaPicInfo.setUrl(reader.optString("url"));
+
         return nasaPicInfo;
     }
 }
